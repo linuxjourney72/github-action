@@ -31,14 +31,12 @@ jobs:
                 path: github-action.txt
                 
     build_job:
-        needs: setup_job
-        runs-on: ubuntu-latest
+        needs: 
+          - setup_job
+        runs-on: windows-latest
         steps: 
             - name: display hello
               run: echo hello
-            - uses: actions/download-artifact@v4
-              with:
-                name: my-file
             - name: Display github-action.txt
               run: cat github-action.txt
     deploy_job: 
